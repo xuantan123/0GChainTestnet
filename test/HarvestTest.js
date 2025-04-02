@@ -1000,7 +1000,7 @@ const ZetaFarmABI = [
       "stateMutability": "nonpayable",
       "type": "function"
     }
-];; 
+];
 const ZTWABI = [
     {
       "inputs": [
