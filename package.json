@@ -1,0 +1,21 @@
+{
+  "name": "zetachaintest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "hardhat": "^2.22.19"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@uniswap/lib": "^4.0.1-alpha",
+    "dotenv": "^16.4.7",
+    "ethers": "^5.8.0"
+  }
+}

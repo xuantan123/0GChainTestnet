@@ -1,0 +1,1058 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\DaiKoDexRouter.sol": {
+      "lastModificationDate": 1743582015471,
+      "contentHash": "425869d8b0afbba6f36a75b2790237c8",
+      "sourceName": "contracts/DaiKoDexRouter.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0",
+        ">=0.5.0",
+        ">=0.6.2",
+        ">=0.6.2",
+        ">=0.5.0",
+        ">=0.5.0",
+        ">=0.5.0",
+        ">=0.5.0",
+        ">=0.6.0",
+        "=0.6.6"
+      ],
+      "artifacts": [
+        "DaiKoDexRouter",
+        "IERC20",
+        "IUniswapFactory",
+        "IUniswapPair",
+        "IUniswapRouter01",
+        "IUniswapRouter02",
+        "IWETH",
+        "SafeMath",
+        "SwapLibrary",
+        "TransferHelper"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\ZeroGravityRouter01.sol": {
+      "lastModificationDate": 1743580710932,
+      "contentHash": "fcc545b58f3c3bc2344ae3a21e13f626",
+      "sourceName": "contracts/factory/ZeroGravityRouter01.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@uniswap/lib/contracts/libraries/TransferHelper.sol",
+        "./ZeroGravityLibrary.sol",
+        "./IZeroGravityRouter01.sol",
+        "./IZeroGravityFactory.sol",
+        "./IERC20.sol",
+        "./IWETH.sol"
+      ],
+      "versionPragmas": [
+        "=0.6.6"
+      ],
+      "artifacts": [
+        "ZeroGravityRouter01"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\ZeroGravityLibrary.sol": {
+      "lastModificationDate": 1743582020472,
+      "contentHash": "2c5afa31b6944d308303b67cdedea1ef",
+      "sourceName": "contracts/factory/ZeroGravityLibrary.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./SafeMath.sol",
+        "./IZeroGravityFactory.sol",
+        "./IZeroGravityPair.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "ZeroGravityLibrary"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\SafeMath.sol": {
+      "lastModificationDate": 1741597646399,
+      "contentHash": "8d1c52ee053e6ea50630cdd67379f241",
+      "sourceName": "contracts/factory/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0 <0.7.0"
+      ],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\ZeroGravityRouter.sol": {
+      "lastModificationDate": 1743580700768,
+      "contentHash": "e63992f44e687688cb1315b46c1c1a46",
+      "sourceName": "contracts/factory/ZeroGravityRouter.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@uniswap/lib/contracts/libraries/TransferHelper.sol",
+        "./IZeroGravityRouter02.sol",
+        "./IZeroGravityFactory.sol",
+        "./ZeroGravityLibrary.sol",
+        "./SafeMath.sol",
+        "./IERC20.sol",
+        "./IWETH.sol"
+      ],
+      "versionPragmas": [
+        "=0.6.6"
+      ],
+      "artifacts": [
+        "ZeroGravityRouter"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\Babylonian.sol": {
+      "lastModificationDate": 1741597646399,
+      "contentHash": "f79b669c6a0aa3d3f501fb52800db1c3",
+      "sourceName": "contracts/factory/Babylonian.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "Babylonian"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IERC20.sol": {
+      "lastModificationDate": 1741597646399,
+      "contentHash": "c1daa20ba503533a624f17f777c966f9",
+      "sourceName": "contracts/factory/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\node_modules\\@uniswap\\lib\\contracts\\libraries\\TransferHelper.sol": {
+      "lastModificationDate": 1741599897168,
+      "contentHash": "7fad4038612c5f040ebd746a3e58e0db",
+      "sourceName": "@uniswap/lib/contracts/libraries/TransferHelper.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0"
+      ],
+      "artifacts": [
+        "TransferHelper"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IWETH.sol": {
+      "lastModificationDate": 1741597646399,
+      "contentHash": "69e3a909ea8ece795fac8929b9863b1f",
+      "sourceName": "contracts/factory/IWETH.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IWETH"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityPair.sol": {
+      "lastModificationDate": 1743580566015,
+      "contentHash": "5eeee215d955f4aa94bccf2fb28e58d1",
+      "sourceName": "contracts/factory/IZeroGravityPair.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IZeroGravityPair"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityCallee.sol": {
+      "lastModificationDate": 1743580438667,
+      "contentHash": "1cb892ab22ad2c84bf6ecf3103638257",
+      "sourceName": "contracts/factory/IZeroGravityCallee.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IZeroGravityCallee"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityFactory.sol": {
+      "lastModificationDate": 1743580522069,
+      "contentHash": "c97d81dc427a6e8d5ef2da76a49a5bd5",
+      "sourceName": "contracts/factory/IZeroGravityFactory.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IZeroGravityFactory"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityERC20.sol": {
+      "lastModificationDate": 1743580474286,
+      "contentHash": "70270011948ac47430dcf36e637c0a14",
+      "sourceName": "contracts/factory/IZeroGravityERC20.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IZeroGravityERC20"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityRouter02.sol": {
+      "lastModificationDate": 1743580600881,
+      "contentHash": "d7a92322c9182ff292d14afd1dfdebd0",
+      "sourceName": "contracts/factory/IZeroGravityRouter02.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IZeroGravityRouter01.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.2"
+      ],
+      "artifacts": [
+        "IZeroGravityRouter02"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityRouter01.sol": {
+      "lastModificationDate": 1743580587990,
+      "contentHash": "1f9721a612f79ce35b5b43e3129c6570",
+      "sourceName": "contracts/factory/IZeroGravityRouter01.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.2"
+      ],
+      "artifacts": [
+        "IZeroGravityRouter01"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityMigrator.sol": {
+      "lastModificationDate": 1743580545343,
+      "contentHash": "000a5c25efde55fa9fc681f5d72b22a3",
+      "sourceName": "contracts/factory/IZeroGravityMigrator.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IZeroGravityMigrator"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\Multicall.sol": {
+      "lastModificationDate": 1741597646399,
+      "contentHash": "57f13507ede9c9500a1ddc70b031a2e4",
+      "sourceName": "contracts/Multicall.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "Multicall"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\ZeroGravityToken.sol": {
+      "lastModificationDate": 1743582264440,
+      "contentHash": "78b62e5a02decf0ced30b3a17e3b9855",
+      "sourceName": "contracts/ZeroGravityToken.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0 <=0.8.20",
+        "^0.8.18",
+        "^0.8.18",
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "Context",
+        "IERC20",
+        "Ownable",
+        "ZeroGravityworld"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\ZetaFarm.sol": {
+      "lastModificationDate": 1742350121201,
+      "contentHash": "ccf1738d8da072ccf49979862c6526c7",
+      "sourceName": "contracts/ZetaFarm.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        ">=0.4.0",
+        ">=0.4.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Address",
+        "Context",
+        "IERC20",
+        "IMasterChef",
+        "Ownable",
+        "ReentrancyGuard",
+        "SafeERC20",
+        "SafeMath",
+        "ZetaFarm"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\ZetaStake.sol": {
+      "lastModificationDate": 1742980741507,
+      "contentHash": "1b106c5882a149822b138a4f93659626",
+      "sourceName": "contracts/ZetaStake.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        ">=0.4.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Address",
+        "Context",
+        "IBoostContract",
+        "IERC20",
+        "IMasterChefV2",
+        "IVCake",
+        "Ownable",
+        "Pausable",
+        "SafeERC20",
+        "ZetaPool"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\ZeroGravityPair.sol": {
+      "lastModificationDate": 1743580780247,
+      "contentHash": "406c1745c45ee1370661854f8e0b7dcf",
+      "sourceName": "contracts/factory/ZeroGravityPair.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IZeroGravityPair.sol",
+        "./ZeroGravityERC20.sol",
+        "./Math.sol",
+        "./UQ112x112.sol",
+        "./IERC20.sol",
+        "./IZeroGravityFactory.sol",
+        "./IZeroGravityCallee.sol"
+      ],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "ZeroGravityPair"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\ZeroGravityERC20.sol": {
+      "lastModificationDate": 1743580647900,
+      "contentHash": "fc37ecfbe0ec0e2e4eb511fcd39b8977",
+      "sourceName": "contracts/factory/ZeroGravityERC20.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IZeroGravityERC20.sol",
+        "./SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "ZeroGravityERC20"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\Math.sol": {
+      "lastModificationDate": 1741597646399,
+      "contentHash": "82676f5cefc482a167096f7087a32a6d",
+      "sourceName": "contracts/factory/Math.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "Math"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\UQ112x112.sol": {
+      "lastModificationDate": 1741597646399,
+      "contentHash": "ae00c5d1575a72dd374e925f90d94650",
+      "sourceName": "contracts/factory/UQ112x112.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "UQ112x112"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\ZeroGravityFactory.sol": {
+      "lastModificationDate": 1743580663973,
+      "contentHash": "2b79c707079c09699cf340f20c7edde8",
+      "sourceName": "contracts/factory/ZeroGravityFactory.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IZeroGravityFactory.sol",
+        "./ZeroGravityPair.sol"
+      ],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "ZeroGravityFactory"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\WBNB.sol": {
+      "lastModificationDate": 1741597646399,
+      "contentHash": "11bd83acdb249d71908ea9b9094681ac",
+      "sourceName": "contracts/factory/WBNB.sol",
+      "solcConfig": {
+        "version": "0.4.18",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.4.18"
+      ],
+      "artifacts": [
+        "WBNB"
+      ]
+    },
+    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\WFTM.sol": {
+      "lastModificationDate": 1741597646399,
+      "contentHash": "2eb242ab0c04d1fc860cb6ddf77b349b",
+      "sourceName": "contracts/WFTM.sol",
+      "solcConfig": {
+        "version": "0.4.18",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.4.18"
+      ],
+      "artifacts": [
+        "WFTM"
+      ]
+    }
+  }
+}
