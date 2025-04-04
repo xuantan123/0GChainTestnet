@@ -1,8 +1,10 @@
-const { ethers } = require("hardhat");
+const { ethers } = require("ethers");
+require("dotenv").config();
 
-const lpTokenAddress = "0x52Da01978a3A86595dd5bc9CDA1927411b890977";
-const ZeraGravityFarmAddress = "0x474655bE1ab45499A3b0C97f7B2Ae5e07cBcD9E2";
-const ZeraGravityFarmABI = [
+const ZeroGravityFarmAddress = "0x474655bE1ab45499A3b0C97f7B2Ae5e07cBcD9E2";
+const A0GIWAddress = "0x2410f5541148ec6b6db8C1712E4D4E8C48D6239E"; // Thay bằng địa chỉ token chính xác
+
+const ZeroGravityFarmABI = [
   {
     "inputs": [
       {
@@ -1000,71 +1002,623 @@ const ZeraGravityFarmABI = [
     "type": "function"
   }
 ];
-async function main() {
-  const [signer] = await ethers.getSigners();
-
-  // Kết nối với contract ZeraGravityFarm
-  const ZeraGravityFarm = new ethers.Contract(ZeraGravityFarmAddress, ZeraGravityFarmABI, signer);
-
-  // Lấy các thông số từ contract
-  const MASTERCHEF_CAKE_PER_SECOND = await ZeraGravityFarm.MASTERCHEF_CAKE_PER_SECOND();
-  const cakeRateToRegularFarm = await ZeraGravityFarm.cakeRateToRegularFarm();
-  const cakeRateToSpecialFarm = await ZeraGravityFarm.cakeRateToSpecialFarm();
-  const CAKE_RATE_TOTAL_PRECISION = await ZeraGravityFarm.CAKE_RATE_TOTAL_PRECISION();
-
-  // Kiểm tra giá trị cakePerSecond cho Regular pool
-  console.log("\n🔍 Kiểm tra CakePerSecond cho Regular Pool...");
-  const expectedRegularAmount = MASTERCHEF_CAKE_PER_SECOND
-    .mul(cakeRateToRegularFarm)
-    .div(CAKE_RATE_TOTAL_PRECISION);
-  const resultRegular = await ZeraGravityFarm.cakePerSecond(true);
-  console.log(`✅ Regular Pool CakePerSecond: ${ethers.utils.formatUnits(resultRegular, 18)}`);
-  console.log(`🔹 Giá trị mong đợi: ${ethers.utils.formatUnits(expectedRegularAmount, 18)}`);
-
-  // Kiểm tra giá trị cakePerSecond cho Special pool
-  console.log("\n🔍 Kiểm tra CakePerSecond cho Special Pool...");
-  const expectedSpecialAmount = MASTERCHEF_CAKE_PER_SECOND
-    .mul(cakeRateToSpecialFarm)
-    .div(CAKE_RATE_TOTAL_PRECISION);
-  const resultSpecial = await ZeraGravityFarm.cakePerSecond(false);
-  console.log(`✅ Special Pool CakePerSecond: ${ethers.utils.formatUnits(resultSpecial, 18)}`);
-  console.log(`🔹 Giá trị mong đợi: ${ethers.utils.formatUnits(expectedSpecialAmount, 18)}`);
-
-  // Kiểm tra kết quả có đúng không
-  if (resultRegular.eq(expectedRegularAmount) && resultSpecial.eq(expectedSpecialAmount)) {
-    console.log("\n🎉 Test Passed! cakePerSecond hoạt động chính xác.");
-  } else {
-    console.log("\n❌ Test Failed! Giá trị không đúng.");
+const A0GIW_ABI = [
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "initialOwner",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnableInvalidOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "OwnableUnauthorizedAccount",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "Approval",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "Burn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "suspended",
+        "type": "bool"
+      }
+    ],
+    "name": "Suspended",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "Transfer",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "isListed",
+        "type": "bool"
+      }
+    ],
+    "name": "UpdateBlacklist",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "authorized",
+        "type": "bool"
+      }
+    ],
+    "name": "UpdateOperator",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      }
+    ],
+    "name": "allowance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "approve",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "burn",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "decimals",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "subtractedValue",
+        "type": "uint256"
+      }
+    ],
+    "name": "decreaseAllowance",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getOwner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "addedValue",
+        "type": "uint256"
+      }
+    ],
+    "name": "increaseAllowance",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "isBlacklisted",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "isSuspended",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "name",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "suspend_",
+        "type": "bool"
+      }
+    ],
+    "name": "suspend",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "symbol",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "transfer",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "transferFrom",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isListed",
+        "type": "bool"
+      }
+    ],
+    "name": "updateBlacklist",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "authorized",
+        "type": "bool"
+      }
+    ],
+    "name": "updateOperator",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   }
-  const poolInfo = await ZeraGravityFarm.poolInfo(1);
-  console.log(`🔍 Pool #1 isRegular: ${poolInfo.isRegular}`);
+];
 
-  if (poolInfo.isRegular) {
-    console.log("\n🚀 Adding Special Pool...");
-    const tx = await ZeraGravityFarm.add(
-      20,               // allocPoint
-      lpTokenAddress,  // LP Token Address
-      false, 
-      true         
-    );
-    await tx.wait();
-    console.log("✅ Special Pool added!");
+const provider = new ethers.providers.JsonRpcProvider(process.env.URL); // Thay bằng RPC chính xác
+const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider); // Thay bằng private key (hoặc dùng .env)
+const signer = wallet.connect(provider);
+
+async function testHarvest(pid, userAddress) {
+    const ZeroGravityFarm = new ethers.Contract(ZeroGravityFarmAddress, ZeroGravityFarmABI, signer);
+    const ZeroGravityToken = new ethers.Contract(A0GIWAddress, A0GIW_ABI, signer);
+  
+    console.log(`\n🔍 Kiểm tra Pending Rewards cho User: ${userAddress}`);
+  
+    // 1️⃣ Kiểm tra số dư token trước khi harvest
+    const balanceBefore = await ZeroGravityToken.balanceOf(userAddress);
+    console.log(`✅ Số dư trước khi Harvest: ${ethers.utils.formatUnits(balanceBefore, 18)} A0GIW`);
+  
+    // 2️⃣ Kiểm tra phần thưởng chưa harvest
+    const pendingRewards = await ZeroGravityFarm.pendingCake(pid, userAddress);
+    console.log(`🔍 Pending Rewards trước Harvest: ${ethers.utils.formatUnits(pendingRewards, 18)} A0GIW`);
+    console.log(`ZeroGravityFarm Address đang dùng: ${ZeroGravityFarmAddress}`);
+    console.log(`ZeroGravityToken Address đang dùng: ${A0GIWAddress}`);
+    
+    const totalSupply = await ZeroGravityToken.totalSupply();
+console.log(`Total Supply: ${ethers.utils.formatUnits(totalSupply, 18)} A0GIW`);
+
+const allowance = await ZeroGravityToken.allowance(userAddress, ZeroGravityFarmAddress);
+console.log(`Allowance của ZeroGravityFarm: ${ethers.utils.formatUnits(allowance, 18)} A0GIW`);
+
+const approveTx = await ZeroGravityToken.approve(ZeroGravityFarmAddress, ethers.utils.parseUnits("1000000", 18));
+await approveTx.wait();
+console.log("✅ Đã cấp quyền sử dụng A0GIW cho ZeroGravityFarm!");
+
+
+const transferTx = await ZeroGravityToken.transfer(ZeroGravityFarmAddress, ethers.utils.parseUnits("1000000", 18));
+await transferTx.wait();
+console.log("✅ Đã chuyển 1,000,000 A0GIW vào ZeroGravityFarm!");
+
+    // 3️⃣ Kiểm tra hợp đồng có đủ token để trả thưởng không
+    const contractBalanceBefore = await ZeroGravityToken.balanceOf("0x2d5a778d313E3CbC2Db0B30451F37350bF131D69");
+    console.log(`🔍 Số dư A0GIW trong contract trước Harvest: ${ethers.utils.formatUnits(contractBalanceBefore, 18)} A0GIW`);
+  
+    // 4️⃣ Thực hiện harvest
+    if (pendingRewards.gt(0)) {
+      console.log(`⏳ Harvesting rewards...`);
+      const tx = await ZeroGravityFarm.deposit(pid, 0); // Gửi 0 LP token để kích hoạt harvest
+      await tx.wait();
+      console.log(`✅ Harvest thành công!`);
+  
+      // Chờ blockchain cập nhật
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+  
+      // 5️⃣ Kiểm tra số dư token sau khi harvest
+      const balanceAfter = await ZeroGravityToken.balanceOf(userAddress);
+      console.log(`✅ Số dư sau khi Harvest: ${ethers.utils.formatUnits(balanceAfter, 18)} A0GIW`);
+  
+      // 6️⃣ Kiểm tra lại pending rewards (nên về 0)
+      const pendingAfter = await ZeroGravityFarm.pendingCake(pid, userAddress);
+      console.log(`🔍 Pending Rewards sau Harvest: ${ethers.utils.formatUnits(pendingAfter, 18)} A0GIW`);
+  
+      // 7️⃣ Kiểm tra số dư của hợp đồng sau harvest
+      const contractBalanceAfter = await ZeroGravityToken.balanceOf(ZeroGravityFarmAddress);
+      console.log(`🔍 Số dư A0GIW trong contract sau Harvest: ${ethers.utils.formatUnits(contractBalanceAfter, 18)} A0GIW`);
+  
+      // 8️⃣ Kiểm tra số token thực tế nhận được
+      const rewardReceived = balanceAfter.sub(balanceBefore);
+      console.log(`🎉 Tổng số token nhận được sau Harvest: ${ethers.utils.formatUnits(rewardReceived, 18)} A0GIW`);
+  
+      // 9️⃣ So sánh với pendingRewards
+      if (rewardReceived.eq(pendingRewards)) {
+        console.log(`✅ Harvest thành công, đúng số lượng ${ethers.utils.formatUnits(rewardReceived, 18)} A0GIW`);
+      } else {
+        console.log(`⚠️ Harvest thành công nhưng số lượng token nhận được không khớp với pending rewards!`);
+      }
+    } else {
+      console.log(`⚠️ Không có phần thưởng để Harvest.`);
+    }
   }
-
-  const totalSpecialAllocPoint = await ZeraGravityFarm.totalSpecialAllocPoint();
-  console.log(`✅ Tổng Special Alloc Point: ${totalSpecialAllocPoint.toString()}`);
-
-  if (totalSpecialAllocPoint.gte(0)) {
-    console.log("\n🎉 Test Passed! Giá trị hợp lệ.");
-  } else {
-    console.log("\n❌ Test Failed! Giá trị không hợp lệ.");
-  }
-}
-
-// Chạy script kiểm tra
-main()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+  
+const pid = 1;
+const userAddress = "0x641DEa2c82c1114E84E28B8B0A7222c5b34E696B"; // Thay bằng địa chỉ thực tế
+testHarvest(pid, userAddress);

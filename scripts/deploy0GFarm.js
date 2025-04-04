@@ -1,18 +1,18 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-    console.log("Deploying ZetaFarm contract...");
+    console.log("Deploying ZeroGravityFarm contract...");
 
-    const ZetaFarm = await ethers.getContractFactory("ZetaFarm");
+    const ZeroGravityFarm = await ethers.getContractFactory("ZeroGravityFarm");
 
-    const CAKE_ADDRESS = "0x92f0656Bb0CE869F39d91E9E12419d6255bf5507"; 
+    const CAKE_ADDRESS = "0x2410f5541148ec6b6db8C1712E4D4E8C48D6239E"; //A0GIW
 
-    const BURN_ADMIN_ADDRESS = "0x641DEa2c82c1114E84E28B8B0A7222c5b34E696B";  
+    const BURN_ADMIN_ADDRESS = "0x641DEa2c82c1114E84E28B8B0A7222c5b34E696B";  //A0GI
 
-    const zetaFarm = await ZetaFarm.deploy(CAKE_ADDRESS, BURN_ADMIN_ADDRESS);
-    await zetaFarm.deployed();
+    const zeroGravityFarm = await ZeroGravityFarm.deploy(CAKE_ADDRESS, BURN_ADMIN_ADDRESS);
+    await zeroGravityFarm.deployed();
 
-    console.log(`ZetaFarm deployed at: ${zetaFarm.address}`);
+    console.log(`ZeroGravityFarm deployed at: ${zeroGravityFarm.address}`);
 }
 
 main()

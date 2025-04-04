@@ -1,8 +1,9 @@
 const { ethers } = require("hardhat");
 
-const lpTokenAddress = "0x52Da01978a3A86595dd5bc9CDA1927411b890977";
-const ZeraGravityFarmAddress = "0x474655bE1ab45499A3b0C97f7B2Ae5e07cBcD9E2";
-const ZeraGravityFarmABI = [
+// Địa chỉ contract
+const ZeroGravityFarmAddress = "0x474655bE1ab45499A3b0C97f7B2Ae5e07cBcD9E2"; // ZeroGravityFarm
+
+const ZeroGravityFarmABI = [
   {
     "inputs": [
       {
@@ -999,72 +1000,43 @@ const ZeraGravityFarmABI = [
     "stateMutability": "nonpayable",
     "type": "function"
   }
-];
+]; 
+
 async function main() {
-  const [signer] = await ethers.getSigners();
+    const [signer] = await ethers.getSigners();
+    const ZeroGravityFarm = new ethers.Contract(ZeroGravityFarmAddress, ZeroGravityFarmABI, signer);
+  
+    const pid = 1;
+    const pool = await ZeroGravityFarm.poolInfo(pid);
 
-  // Kết nối với contract ZeraGravityFarm
-  const ZeraGravityFarm = new ethers.Contract(ZeraGravityFarmAddress, ZeraGravityFarmABI, signer);
-
-  // Lấy các thông số từ contract
-  const MASTERCHEF_CAKE_PER_SECOND = await ZeraGravityFarm.MASTERCHEF_CAKE_PER_SECOND();
-  const cakeRateToRegularFarm = await ZeraGravityFarm.cakeRateToRegularFarm();
-  const cakeRateToSpecialFarm = await ZeraGravityFarm.cakeRateToSpecialFarm();
-  const CAKE_RATE_TOTAL_PRECISION = await ZeraGravityFarm.CAKE_RATE_TOTAL_PRECISION();
-
-  // Kiểm tra giá trị cakePerSecond cho Regular pool
-  console.log("\n🔍 Kiểm tra CakePerSecond cho Regular Pool...");
-  const expectedRegularAmount = MASTERCHEF_CAKE_PER_SECOND
-    .mul(cakeRateToRegularFarm)
-    .div(CAKE_RATE_TOTAL_PRECISION);
-  const resultRegular = await ZeraGravityFarm.cakePerSecond(true);
-  console.log(`✅ Regular Pool CakePerSecond: ${ethers.utils.formatUnits(resultRegular, 18)}`);
-  console.log(`🔹 Giá trị mong đợi: ${ethers.utils.formatUnits(expectedRegularAmount, 18)}`);
-
-  // Kiểm tra giá trị cakePerSecond cho Special pool
-  console.log("\n🔍 Kiểm tra CakePerSecond cho Special Pool...");
-  const expectedSpecialAmount = MASTERCHEF_CAKE_PER_SECOND
-    .mul(cakeRateToSpecialFarm)
-    .div(CAKE_RATE_TOTAL_PRECISION);
-  const resultSpecial = await ZeraGravityFarm.cakePerSecond(false);
-  console.log(`✅ Special Pool CakePerSecond: ${ethers.utils.formatUnits(resultSpecial, 18)}`);
-  console.log(`🔹 Giá trị mong đợi: ${ethers.utils.formatUnits(expectedSpecialAmount, 18)}`);
-
-  // Kiểm tra kết quả có đúng không
-  if (resultRegular.eq(expectedRegularAmount) && resultSpecial.eq(expectedSpecialAmount)) {
-    console.log("\n🎉 Test Passed! cakePerSecond hoạt động chính xác.");
-  } else {
-    console.log("\n❌ Test Failed! Giá trị không đúng.");
+  console.log(`🔍 Pool #${pid} Info:`);
+  console.log(`   🟢 allocPoint: ${pool.allocPoint.toString()}`);
+  console.log(`   🟢 lastRewardTimestamp: ${pool.lastRewardTimestamp.toString()}`);
+  console.log(`   🟢 accCakePerShare: ${pool.accCakePerShare.toString()}`);
+  console.log(`   🟢 totalBoostedShare: ${pool.totalBoostedShare.toString()}`);
+  console.log(`   🟢 isRegular: ${pool.isRegular}`);
+    // 📌 Kiểm tra số dư trong farm trước khi rút
+    let userInfo = await ZeroGravityFarm.userInfo(pid, signer.address);
+    console.log(`🔍 Số LP Token trong farm: ${ethers.utils.formatUnits(userInfo.amount, 18)}`);
+  
+    // 📌 Chỉ rút nếu có LP Token trong farm
+    if (userInfo.amount.gt(ethers.constants.Zero)) {
+      try {
+        console.log("⏳ Rút token LP từ farm...");
+        let withdrawAmount = userInfo.amount;
+        let tx = await ZeroGravityFarm.withdraw(pid, withdrawAmount);
+        await tx.wait();
+        console.log("✅ Đã rút thành công!");
+      } catch (error) {
+        console.error("❌ Lỗi khi rút:", error);
+      }
+    } else {
+      console.log("❌ Không thể rút: User không có LP Token trong farm.");
+    }
   }
-  const poolInfo = await ZeraGravityFarm.poolInfo(1);
-  console.log(`🔍 Pool #1 isRegular: ${poolInfo.isRegular}`);
-
-  if (poolInfo.isRegular) {
-    console.log("\n🚀 Adding Special Pool...");
-    const tx = await ZeraGravityFarm.add(
-      20,               // allocPoint
-      lpTokenAddress,  // LP Token Address
-      false, 
-      true         
-    );
-    await tx.wait();
-    console.log("✅ Special Pool added!");
-  }
-
-  const totalSpecialAllocPoint = await ZeraGravityFarm.totalSpecialAllocPoint();
-  console.log(`✅ Tổng Special Alloc Point: ${totalSpecialAllocPoint.toString()}`);
-
-  if (totalSpecialAllocPoint.gte(0)) {
-    console.log("\n🎉 Test Passed! Giá trị hợp lệ.");
-  } else {
-    console.log("\n❌ Test Failed! Giá trị không hợp lệ.");
-  }
-}
-
-// Chạy script kiểm tra
-main()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
+  
+  // Chạy script
+  main().catch((error) => {
+    console.error("❌ Lỗi:", error);
   });
+  
