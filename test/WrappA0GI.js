@@ -1,14 +1,13 @@
 const { ethers } = require("ethers");
 require("dotenv").config();
 
-// 🎯 Cấu hình mạng A0GIChain (Holesky Testnet)
 const provider = new ethers.providers.JsonRpcProvider(process.env.URL);
 
 const privateKey = process.env.PRIVATE_KEY; 
 const wallet = new ethers.Wallet(privateKey, provider);
 
 // 🏦 Địa chỉ hợp đồng wA0GI (Token ERC-20)
-const WA0GIContractAddress = "0x493ea9950586033ea8894b5e684bb4df6979a0d3"; // Thay bằng địa chỉ chính xác
+const WA0GIContractAddress = "0x493ea9950586033ea8894b5e684bb4df6979a0d3"; 
 
 const WA0GI_ABI = [
     {
@@ -275,9 +274,8 @@ const WA0GI_ABI = [
     {
       "type": "fallback"
     }
-  ];
+];
 
-// 🔗 Khởi tạo contract
 const WA0GIContract = new ethers.Contract(WA0GIContractAddress, WA0GI_ABI, wallet);
 
 async function wrapA0GI(amount) {
@@ -296,7 +294,7 @@ async function wrapA0GI(amount) {
         console.error("❌ Lỗi wrap A0GI:", error);
     }
 }
-
+  
 // 💰 Nhập số lượng A0GI muốn wrap (Ví dụ: 0.1 A0GI)
 const amountToWrap = ethers.utils.parseEther("0.0001"); // 0.1 A0GI
 

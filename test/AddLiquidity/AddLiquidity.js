@@ -1192,7 +1192,7 @@ const routerABI = [
     "type": "receive"
   }
 ];  // ABI của Router Contract
-  const WA0GI_ABI = [
+const WA0GI_ABI = [
     {
       "constant": true,
       "inputs": [
@@ -1457,7 +1457,7 @@ const routerABI = [
     {
       "type": "fallback"
     }
-  ];
+];
 const A0GIW_ABI = [
   {
     "inputs": [

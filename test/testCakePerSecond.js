@@ -2,6 +2,7 @@ const { ethers } = require("hardhat");
 
 const lpTokenAddress = "0x52Da01978a3A86595dd5bc9CDA1927411b890977";
 const ZeraGravityFarmAddress = "0x474655bE1ab45499A3b0C97f7B2Ae5e07cBcD9E2";
+
 const ZeraGravityFarmABI = [
   {
     "inputs": [
@@ -1000,13 +1001,12 @@ const ZeraGravityFarmABI = [
     "type": "function"
   }
 ];
+
 async function main() {
   const [signer] = await ethers.getSigners();
 
-  // Kết nối với contract ZeraGravityFarm
   const ZeraGravityFarm = new ethers.Contract(ZeraGravityFarmAddress, ZeraGravityFarmABI, signer);
 
-  // Lấy các thông số từ contract
   const MASTERCHEF_CAKE_PER_SECOND = await ZeraGravityFarm.MASTERCHEF_CAKE_PER_SECOND();
   const cakeRateToRegularFarm = await ZeraGravityFarm.cakeRateToRegularFarm();
   const cakeRateToSpecialFarm = await ZeraGravityFarm.cakeRateToSpecialFarm();
