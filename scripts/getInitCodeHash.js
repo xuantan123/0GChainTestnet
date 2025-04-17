@@ -1,7 +1,7 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-    const factoryAddress = "0x7FDc996385baEB9aD972C99d1756DC6ab057E2de"; 
+    const factoryAddress = "0x28a8593736FE070cac682617D00EA49D008dC19a"; 
 
     const factoryABI = [
       {
@@ -227,3 +227,5 @@ main()
         console.error("❌ Lỗi:", error.message);
         process.exit(1);
     });
+
+// npx hardhat run scripts/getInitCodeHash.js --network ZeroGravityChain

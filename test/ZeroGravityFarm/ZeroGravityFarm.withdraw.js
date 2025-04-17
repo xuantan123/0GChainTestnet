@@ -1,7 +1,7 @@
 const { ethers } = require("hardhat");
 
 // Địa chỉ contract
-const ZeroGravityFarmAddress = "0x474655bE1ab45499A3b0C97f7B2Ae5e07cBcD9E2"; // ZeroGravityFarm
+const ZeroGravityFarmAddress = "0x4d4812CA33e31761c60b7f9d4c7a7C2d39f4868B"; // ZeroGravityFarm
 
 const ZeroGravityFarmABI = [
   {
@@ -903,7 +903,7 @@ const ZeroGravityFarmABI = [
             "type": "bool"
           }
         ],
-        "internalType": "struct ZeroGravityFarm.PoolInfo",
+        "internalType": "struct t0GDEXFarm.PoolInfo",
         "name": "pool",
         "type": "tuple"
       }
@@ -1040,3 +1040,4 @@ async function main() {
     console.error("❌ Lỗi:", error);
   });
   
+//npx hardhat run test/ZeroGravityFarm/ZeroGravityFarm.withdraw.js --network ZeroGravityChain

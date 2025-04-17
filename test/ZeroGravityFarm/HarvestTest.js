@@ -1,8 +1,8 @@
 const { ethers } = require("ethers");
 require("dotenv").config();
 
-const ZeroGravityFarmAddress = "0x474655bE1ab45499A3b0C97f7B2Ae5e07cBcD9E2";
-const A0GIWAddress = "0x2410f5541148ec6b6db8C1712E4D4E8C48D6239E"; // Thay bằng địa chỉ token chính xác
+const ZeroGravityFarmAddress = "0x4d4812CA33e31761c60b7f9d4c7a7C2d39f4868B";
+const A0GIWAddress = "0xF597cE99bc20F6cBe752982dB362B78B84b5690C"; // Thay bằng địa chỉ token chính xác
 
 const ZeroGravityFarmABI = [
   {
@@ -1579,7 +1579,7 @@ await transferTx.wait();
 console.log("✅ Đã chuyển 1,000,000 A0GIW vào ZeroGravityFarm!");
 
     // 3️⃣ Kiểm tra hợp đồng có đủ token để trả thưởng không
-    const contractBalanceBefore = await ZeroGravityToken.balanceOf("0x2d5a778d313E3CbC2Db0B30451F37350bF131D69");
+    const contractBalanceBefore = await ZeroGravityToken.balanceOf("0x4d4812CA33e31761c60b7f9d4c7a7C2d39f4868B");
     console.log(`🔍 Số dư A0GIW trong contract trước Harvest: ${ethers.utils.formatUnits(contractBalanceBefore, 18)} A0GIW`);
   
     // 4️⃣ Thực hiện harvest
@@ -1620,5 +1620,8 @@ console.log("✅ Đã chuyển 1,000,000 A0GIW vào ZeroGravityFarm!");
   }
   
 const pid = 1;
-const userAddress = "0x641DEa2c82c1114E84E28B8B0A7222c5b34E696B"; // Thay bằng địa chỉ thực tế
+const userAddress = "0x1c6261b5Bc54f42D3B0e6bf74c052C3917cAb29C"; // Thay bằng địa chỉ thực tế
 testHarvest(pid, userAddress);
+
+
+// npx hardhat run test/ZeroGravityFarm/HarvestTest.js --network ZeroGravityChain

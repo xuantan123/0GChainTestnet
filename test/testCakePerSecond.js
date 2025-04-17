@@ -1,7 +1,7 @@
 const { ethers } = require("hardhat");
 
-const lpTokenAddress = "0x52Da01978a3A86595dd5bc9CDA1927411b890977";
-const ZeraGravityFarmAddress = "0x474655bE1ab45499A3b0C97f7B2Ae5e07cBcD9E2";
+const lpTokenAddress = "0x9886305EdC7D7e5EC68303416f6a42C1Ec93723D";
+const ZeraGravityFarmAddress = "0x4d4812CA33e31761c60b7f9d4c7a7C2d39f4868B";
 
 const ZeraGravityFarmABI = [
   {
@@ -1068,3 +1068,6 @@ main()
     console.error(error);
     process.exit(1);
   });
+
+
+  // npx hardhat run test/testCakePerSecond.js --network ZeroGravityChain

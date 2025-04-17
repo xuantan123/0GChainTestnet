@@ -1,6 +1,6 @@
 const { ethers } = require("hardhat");
 
-const ZeraGravityStakeAddress = "0xdDfa204cbe53E4B9A688E4D87FB88f7B04111D68"; 
+const ZeraGravityStakeAddress = "0x42197A2df41EB03192F27aF15B14120879Fd6e70"; 
 
 const ZeraGravityStakeABI = [
   {
@@ -1612,3 +1612,6 @@ const ZeraGravityStakeABI = [
 main().catch((error) => {
   console.error("❌ Lỗi:", error);
 });
+
+
+// npx hardhat run test/ZeroGravityStake/ZeroGravityStake.withdraw.js --network ZeroGravityChain

@@ -1,220 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\DaiKoDexRouter.sol": {
-      "lastModificationDate": 1743582015471,
-      "contentHash": "425869d8b0afbba6f36a75b2790237c8",
-      "sourceName": "contracts/DaiKoDexRouter.sol",
-      "solcConfig": {
-        "version": "0.6.6",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.5.0",
-        ">=0.5.0",
-        ">=0.6.2",
-        ">=0.6.2",
-        ">=0.5.0",
-        ">=0.5.0",
-        ">=0.5.0",
-        ">=0.5.0",
-        ">=0.6.0",
-        "=0.6.6"
-      ],
-      "artifacts": [
-        "DaiKoDexRouter",
-        "IERC20",
-        "IUniswapFactory",
-        "IUniswapPair",
-        "IUniswapRouter01",
-        "IUniswapRouter02",
-        "IWETH",
-        "SafeMath",
-        "SwapLibrary",
-        "TransferHelper"
-      ]
-    },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\ZeroGravityRouter01.sol": {
-      "lastModificationDate": 1743580710932,
-      "contentHash": "fcc545b58f3c3bc2344ae3a21e13f626",
-      "sourceName": "contracts/factory/ZeroGravityRouter01.sol",
-      "solcConfig": {
-        "version": "0.6.6",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@uniswap/lib/contracts/libraries/TransferHelper.sol",
-        "./ZeroGravityLibrary.sol",
-        "./IZeroGravityRouter01.sol",
-        "./IZeroGravityFactory.sol",
-        "./IERC20.sol",
-        "./IWETH.sol"
-      ],
-      "versionPragmas": [
-        "=0.6.6"
-      ],
-      "artifacts": [
-        "ZeroGravityRouter01"
-      ]
-    },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\ZeroGravityLibrary.sol": {
-      "lastModificationDate": 1743582020472,
-      "contentHash": "2c5afa31b6944d308303b67cdedea1ef",
-      "sourceName": "contracts/factory/ZeroGravityLibrary.sol",
-      "solcConfig": {
-        "version": "0.6.6",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./SafeMath.sol",
-        "./IZeroGravityFactory.sol",
-        "./IZeroGravityPair.sol"
-      ],
-      "versionPragmas": [
-        ">=0.5.0"
-      ],
-      "artifacts": [
-        "ZeroGravityLibrary"
-      ]
-    },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\SafeMath.sol": {
-      "lastModificationDate": 1741597646399,
-      "contentHash": "8d1c52ee053e6ea50630cdd67379f241",
-      "sourceName": "contracts/factory/SafeMath.sol",
-      "solcConfig": {
-        "version": "0.6.6",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.5.0 <0.7.0"
-      ],
-      "artifacts": [
-        "SafeMath"
-      ]
-    },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\ZeroGravityRouter.sol": {
-      "lastModificationDate": 1743580700768,
-      "contentHash": "e63992f44e687688cb1315b46c1c1a46",
-      "sourceName": "contracts/factory/ZeroGravityRouter.sol",
-      "solcConfig": {
-        "version": "0.6.6",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@uniswap/lib/contracts/libraries/TransferHelper.sol",
-        "./IZeroGravityRouter02.sol",
-        "./IZeroGravityFactory.sol",
-        "./ZeroGravityLibrary.sol",
-        "./SafeMath.sol",
-        "./IERC20.sol",
-        "./IWETH.sol"
-      ],
-      "versionPragmas": [
-        "=0.6.6"
-      ],
-      "artifacts": [
-        "ZeroGravityRouter"
-      ]
-    },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\Babylonian.sol": {
-      "lastModificationDate": 1741597646399,
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\Babylonian.sol": {
+      "lastModificationDate": 1744185194020,
       "contentHash": "f79b669c6a0aa3d3f501fb52800db1c3",
       "sourceName": "contracts/factory/Babylonian.sol",
       "solcConfig": {
@@ -249,8 +37,8 @@
         "Babylonian"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IERC20.sol": {
-      "lastModificationDate": 1741597646399,
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\IERC20.sol": {
+      "lastModificationDate": 1744185197633,
       "contentHash": "c1daa20ba503533a624f17f777c966f9",
       "sourceName": "contracts/factory/IERC20.sol",
       "solcConfig": {
@@ -285,7 +73,7 @@
         "IERC20"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\node_modules\\@uniswap\\lib\\contracts\\libraries\\TransferHelper.sol": {
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\node_modules\\@uniswap\\lib\\contracts\\libraries\\TransferHelper.sol": {
       "lastModificationDate": 1741599897168,
       "contentHash": "7fad4038612c5f040ebd746a3e58e0db",
       "sourceName": "@uniswap/lib/contracts/libraries/TransferHelper.sol",
@@ -321,7 +109,7 @@
         "TransferHelper"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IWETH.sol": {
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\IWETH.sol": {
       "lastModificationDate": 1741597646399,
       "contentHash": "69e3a909ea8ece795fac8929b9863b1f",
       "sourceName": "contracts/factory/IWETH.sol",
@@ -357,10 +145,10 @@
         "IWETH"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityPair.sol": {
-      "lastModificationDate": 1743580566015,
-      "contentHash": "5eeee215d955f4aa94bccf2fb28e58d1",
-      "sourceName": "contracts/factory/IZeroGravityPair.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\It0GDEXPair.sol": {
+      "lastModificationDate": 1744170930540,
+      "contentHash": "4bbb6bf0d6337bd3c6d931a28936291e",
+      "sourceName": "contracts/factory/It0GDEXPair.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -390,13 +178,13 @@
         ">=0.5.0"
       ],
       "artifacts": [
-        "IZeroGravityPair"
+        "It0GDEXPair"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityFactory.sol": {
-      "lastModificationDate": 1743580522069,
-      "contentHash": "c97d81dc427a6e8d5ef2da76a49a5bd5",
-      "sourceName": "contracts/factory/IZeroGravityFactory.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\It0GDEXCallee.sol": {
+      "lastModificationDate": 1744170874166,
+      "contentHash": "fa3db3868e5bb462efe103654e013428",
+      "sourceName": "contracts/factory/It0GDEXCallee.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -426,13 +214,13 @@
         ">=0.5.0"
       ],
       "artifacts": [
-        "IZeroGravityFactory"
+        "It0GDEXCallee"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityCallee.sol": {
-      "lastModificationDate": 1743580438667,
-      "contentHash": "1cb892ab22ad2c84bf6ecf3103638257",
-      "sourceName": "contracts/factory/IZeroGravityCallee.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\It0GDEXFactory.sol": {
+      "lastModificationDate": 1744170904207,
+      "contentHash": "aaf5b78cd3225b12f616d3233a32a3e2",
+      "sourceName": "contracts/factory/It0GDEXFactory.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -462,13 +250,13 @@
         ">=0.5.0"
       ],
       "artifacts": [
-        "IZeroGravityCallee"
+        "It0GDEXFactory"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityERC20.sol": {
-      "lastModificationDate": 1743580474286,
-      "contentHash": "70270011948ac47430dcf36e637c0a14",
-      "sourceName": "contracts/factory/IZeroGravityERC20.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\It0GDEXERC20.sol": {
+      "lastModificationDate": 1744170886309,
+      "contentHash": "6f9bca72d5a7152910185de2f08f16f6",
+      "sourceName": "contracts/factory/It0GDEXERC20.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -498,13 +286,13 @@
         ">=0.5.0"
       ],
       "artifacts": [
-        "IZeroGravityERC20"
+        "It0GDEXERC20"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityRouter02.sol": {
-      "lastModificationDate": 1743580600881,
-      "contentHash": "d7a92322c9182ff292d14afd1dfdebd0",
-      "sourceName": "contracts/factory/IZeroGravityRouter02.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\It0GDEXRouter02.sol": {
+      "lastModificationDate": 1744170959108,
+      "contentHash": "e3508d0cab4e5c766f41a11c969592b0",
+      "sourceName": "contracts/factory/It0GDEXRouter02.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -530,19 +318,19 @@
         }
       },
       "imports": [
-        "./IZeroGravityRouter01.sol"
+        "./It0GDEXRouter01.sol"
       ],
       "versionPragmas": [
         ">=0.6.2"
       ],
       "artifacts": [
-        "IZeroGravityRouter02"
+        "It0GDEXRouter02"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityRouter01.sol": {
-      "lastModificationDate": 1743580587990,
-      "contentHash": "1f9721a612f79ce35b5b43e3129c6570",
-      "sourceName": "contracts/factory/IZeroGravityRouter01.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\It0GDEXRouter01.sol": {
+      "lastModificationDate": 1744170945197,
+      "contentHash": "c57835c317a5e49eb059ce1d81f8734b",
+      "sourceName": "contracts/factory/It0GDEXRouter01.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -572,13 +360,13 @@
         ">=0.6.2"
       ],
       "artifacts": [
-        "IZeroGravityRouter01"
+        "It0GDEXRouter01"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\IZeroGravityMigrator.sol": {
-      "lastModificationDate": 1743580545343,
-      "contentHash": "000a5c25efde55fa9fc681f5d72b22a3",
-      "sourceName": "contracts/factory/IZeroGravityMigrator.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\It0GDEXMigrator.sol": {
+      "lastModificationDate": 1744170917958,
+      "contentHash": "20ad21fe7e8b170fd4abc3f31bd62939",
+      "sourceName": "contracts/factory/It0GDEXMigrator.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -608,10 +396,10 @@
         ">=0.5.0"
       ],
       "artifacts": [
-        "IZeroGravityMigrator"
+        "It0GDEXMigrator"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\Multicall.sol": {
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\Multicall.sol": {
       "lastModificationDate": 1741597646399,
       "contentHash": "57f13507ede9c9500a1ddc70b031a2e4",
       "sourceName": "contracts/Multicall.sol",
@@ -647,10 +435,10 @@
         "Multicall"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\ZeroGravityFarm.sol": {
-      "lastModificationDate": 1743646172495,
-      "contentHash": "c380455c61841ce7386554a27d8970a4",
-      "sourceName": "contracts/ZeroGravityFarm.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\t0GDEXFarm.sol": {
+      "lastModificationDate": 1744171092947,
+      "contentHash": "957efd18e8c00062296bed519a13f777",
+      "sourceName": "contracts/t0GDEXFarm.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -696,13 +484,13 @@
         "ReentrancyGuard",
         "SafeERC20",
         "SafeMath",
-        "ZeroGravityFarm"
+        "t0GDEXFarm"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\ZeroGravityStake.sol": {
-      "lastModificationDate": 1743646202957,
-      "contentHash": "34db5fb651240dca589c2587098d1ee4",
-      "sourceName": "contracts/ZeroGravityStake.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\t0GDEXStake.sol": {
+      "lastModificationDate": 1744171105033,
+      "contentHash": "7292e6cb92f0f16e67409a159728447b",
+      "sourceName": "contracts/t0GDEXStake.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -750,13 +538,13 @@
         "Ownable",
         "Pausable",
         "SafeERC20",
-        "ZeroGravityPool"
+        "t0GDEXPool"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\ZeroGravityToken.sol": {
-      "lastModificationDate": 1743582264440,
-      "contentHash": "78b62e5a02decf0ced30b3a17e3b9855",
-      "sourceName": "contracts/ZeroGravityToken.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\t0GDEXToken.sol": {
+      "lastModificationDate": 1744258106097,
+      "contentHash": "c0e01d6717a78080ed616dd2460b693d",
+      "sourceName": "contracts/t0GDEXToken.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -792,13 +580,225 @@
         "Context",
         "IERC20",
         "Ownable",
-        "ZeroGravityworld"
+        "t0GDEXworld"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\ZeroGravityPair.sol": {
-      "lastModificationDate": 1743580780247,
-      "contentHash": "406c1745c45ee1370661854f8e0b7dcf",
-      "sourceName": "contracts/factory/ZeroGravityPair.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\t0GDEXRouter01.sol": {
+      "lastModificationDate": 1744171077460,
+      "contentHash": "9cc5ec0f3be3cc90e10325d163d62b74",
+      "sourceName": "contracts/factory/t0GDEXRouter01.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@uniswap/lib/contracts/libraries/TransferHelper.sol",
+        "./t0GDEXLibrary.sol",
+        "./It0GDEXRouter01.sol",
+        "./It0GDEXFactory.sol",
+        "./IERC20.sol",
+        "./IWETH.sol"
+      ],
+      "versionPragmas": [
+        "=0.6.6"
+      ],
+      "artifacts": [
+        "t0GDEXRouter01"
+      ]
+    },
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\t0GDEXLibrary.sol": {
+      "lastModificationDate": 1744619017570,
+      "contentHash": "f077896e4d17136f693455cba7610b3e",
+      "sourceName": "contracts/factory/t0GDEXLibrary.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./SafeMath.sol",
+        "./It0GDEXFactory.sol",
+        "./It0GDEXPair.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "t0GDEXLibrary"
+      ]
+    },
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\SafeMath.sol": {
+      "lastModificationDate": 1741597646399,
+      "contentHash": "8d1c52ee053e6ea50630cdd67379f241",
+      "sourceName": "contracts/factory/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0 <0.7.0"
+      ],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\t0GDEXRouter.sol": {
+      "lastModificationDate": 1744171066340,
+      "contentHash": "9e5dd1e422cb463b8da4356a1ebd68ce",
+      "sourceName": "contracts/factory/t0GDEXRouter.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@uniswap/lib/contracts/libraries/TransferHelper.sol",
+        "./It0GDEXRouter02.sol",
+        "./It0GDEXFactory.sol",
+        "./t0GDEXLibrary.sol",
+        "./SafeMath.sol",
+        "./IERC20.sol",
+        "./IWETH.sol"
+      ],
+      "versionPragmas": [
+        "=0.6.6"
+      ],
+      "artifacts": [
+        "t0GDEXRouter"
+      ]
+    },
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\t0GDEXSwapRouter.sol": {
+      "lastModificationDate": 1744619015128,
+      "contentHash": "445baee48508037c8ffaaf0224c88606",
+      "sourceName": "contracts/t0GDEXSwapRouter.sol",
+      "solcConfig": {
+        "version": "0.6.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0",
+        ">=0.5.0",
+        ">=0.6.2",
+        ">=0.6.2",
+        ">=0.5.0",
+        ">=0.5.0",
+        ">=0.5.0",
+        ">=0.5.0",
+        ">=0.6.0",
+        "=0.6.6"
+      ],
+      "artifacts": [
+        "IERC20",
+        "IUniswapFactory",
+        "IUniswapPair",
+        "IUniswapRouter01",
+        "IUniswapRouter02",
+        "IWETH",
+        "SafeMath",
+        "SwapLibrary",
+        "TransferHelper",
+        "t0GDEXSwapRouter"
+      ]
+    },
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\t0GDEXPair.sol": {
+      "lastModificationDate": 1744187589170,
+      "contentHash": "c494b980ac8d2f8a6473e7460c9cf236",
+      "sourceName": "contracts/factory/t0GDEXPair.sol",
       "solcConfig": {
         "version": "0.5.16",
         "settings": {
@@ -823,25 +823,25 @@
         }
       },
       "imports": [
-        "./IZeroGravityPair.sol",
-        "./ZeroGravityERC20.sol",
+        "./It0GDEXPair.sol",
+        "./t0GDEXERC20.sol",
         "./Math.sol",
         "./UQ112x112.sol",
         "./IERC20.sol",
-        "./IZeroGravityFactory.sol",
-        "./IZeroGravityCallee.sol"
+        "./It0GDEXFactory.sol",
+        "./It0GDEXCallee.sol"
       ],
       "versionPragmas": [
         "=0.5.16"
       ],
       "artifacts": [
-        "ZeroGravityPair"
+        "t0GDEXPair"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\ZeroGravityERC20.sol": {
-      "lastModificationDate": 1743580647900,
-      "contentHash": "fc37ecfbe0ec0e2e4eb511fcd39b8977",
-      "sourceName": "contracts/factory/ZeroGravityERC20.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\t0GDEXERC20.sol": {
+      "lastModificationDate": 1744339679433,
+      "contentHash": "862dbf3cec3289f41ce782586dd3d22b",
+      "sourceName": "contracts/factory/t0GDEXERC20.sol",
       "solcConfig": {
         "version": "0.5.16",
         "settings": {
@@ -866,17 +866,17 @@
         }
       },
       "imports": [
-        "./IZeroGravityERC20.sol",
+        "./It0GDEXERC20.sol",
         "./SafeMath.sol"
       ],
       "versionPragmas": [
         "=0.5.16"
       ],
       "artifacts": [
-        "ZeroGravityERC20"
+        "t0GDEXERC20"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\Math.sol": {
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\Math.sol": {
       "lastModificationDate": 1741597646399,
       "contentHash": "82676f5cefc482a167096f7087a32a6d",
       "sourceName": "contracts/factory/Math.sol",
@@ -911,7 +911,7 @@
         "Math"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\UQ112x112.sol": {
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\UQ112x112.sol": {
       "lastModificationDate": 1741597646399,
       "contentHash": "ae00c5d1575a72dd374e925f90d94650",
       "sourceName": "contracts/factory/UQ112x112.sol",
@@ -946,10 +946,10 @@
         "UQ112x112"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\ZeroGravityFactory.sol": {
-      "lastModificationDate": 1743580663973,
-      "contentHash": "2b79c707079c09699cf340f20c7edde8",
-      "sourceName": "contracts/factory/ZeroGravityFactory.sol",
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\t0GDEXFactory.sol": {
+      "lastModificationDate": 1744187260310,
+      "contentHash": "2329220ba3d563c3e0c20aeb8f99716b",
+      "sourceName": "contracts/factory/t0GDEXFactory.sol",
       "solcConfig": {
         "version": "0.5.16",
         "settings": {
@@ -974,18 +974,18 @@
         }
       },
       "imports": [
-        "./IZeroGravityFactory.sol",
-        "./ZeroGravityPair.sol"
+        "./It0GDEXFactory.sol",
+        "./t0GDEXPair.sol"
       ],
       "versionPragmas": [
         "=0.5.16"
       ],
       "artifacts": [
-        "ZeroGravityFactory"
+        "t0GDEXFactory"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\factory\\WBNB.sol": {
-      "lastModificationDate": 1741597646399,
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\factory\\WBNB.sol": {
+      "lastModificationDate": 1744185714724,
       "contentHash": "11bd83acdb249d71908ea9b9094681ac",
       "sourceName": "contracts/factory/WBNB.sol",
       "solcConfig": {
@@ -1019,7 +1019,7 @@
         "WBNB"
       ]
     },
-    "D:\\0gChainTestnet\\0gChainTestnet\\contracts\\WFTM.sol": {
+    "D:\\0GChainTestnet(deployETH)\\0gChainTestnet\\contracts\\WFTM.sol": {
       "lastModificationDate": 1741597646399,
       "contentHash": "2eb242ab0c04d1fc860cb6ddf77b349b",
       "sourceName": "contracts/WFTM.sol",

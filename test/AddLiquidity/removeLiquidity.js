@@ -5,7 +5,7 @@ const provider = new ethers.providers.JsonRpcProvider(process.env.URL);
 const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
 // Thông tin smart contract
-const ROUTER_ADDRESS = "0x4eF60c888C48D14631847B91042E0c92FD7FE894"; 
+const ROUTER_ADDRESS = "0x3CD9BE90C411fbcCae8C34ce828af61096787597"; 
 const routerABI = [
   {
     "inputs": [
@@ -978,8 +978,8 @@ const routerABI = [
     "stateMutability": "payable",
     "type": "receive"
   }
-]; 
-const FACTORY_ADDRESS = "0x7FDc996385baEB9aD972C99d1756DC6ab057E2de";
+];
+const FACTORY_ADDRESS = "0xaDbD663D259D075AAD80B38d716a64939496784E";
 const factoryABI = [
   {
     "inputs": [
@@ -1188,14 +1188,15 @@ const factoryABI = [
     "type": "function"
   }
 ];
+
 const contract = new ethers.Contract(ROUTER_ADDRESS, routerABI, wallet);
 const factoryContract = new ethers.Contract(FACTORY_ADDRESS, factoryABI, wallet);
 
 async function removeLiquidity() {
     try {
         const WETH = "0x493ea9950586033ea8894b5e684bb4df6979a0d3";
-        const token = "0x2410f5541148ec6b6db8C1712E4D4E8C48D6239E"; 
-        const liquidity = ethers.utils.parseUnits("0.0001", 18);
+        const token = "0xF597cE99bc20F6cBe752982dB362B78B84b5690C"; 
+        const liquidity = ethers.utils.parseUnits("0.2", 18);
         const amountTokenMin = ethers.utils.parseUnits("0", 18);
         const amountETHMin = ethers.utils.parseUnits("0", 18);
         const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
@@ -1257,7 +1258,7 @@ async function removeLiquidity() {
             to,
             deadline,
             {
-                gasLimit: 800000,
+                gasLimit: 10000,
                 gasPrice: gasPrice,
             }
         );
@@ -1275,3 +1276,4 @@ async function removeLiquidity() {
 }
 // Gọi hàm remove
 removeLiquidity();
+

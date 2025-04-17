@@ -5,7 +5,7 @@ async function main() {
   const userAddress = signer.address;
 
   // 🛠 Địa chỉ contract ZetaFarm
-  const ZetaStakeAddress = "0x3F15C35E970Cb3881FaAED779e6Df3AB2494E26b";
+  const ZetaStakeAddress = "0x62742e46537aC5FaC5e2F2389Dc09F89360829FC";
   const ZetaStakeABI = [
     {
       "inputs": [
@@ -1585,7 +1585,7 @@ async function main() {
       "stateMutability": "view",
       "type": "function"
     }
-];
+  ];
 
   const ZetaStake = new ethers.Contract(ZetaStakeAddress, ZetaStakeABI, signer);
 

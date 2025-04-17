@@ -2,7 +2,7 @@ const { ethers } = require("ethers");
 require("dotenv").config();
 
 
-const A0FGIWAddress = "0x92f0656Bb0CE869F39d91E9E12419d6255bf5507"; // Thay bằng địa chỉ token chính xác
+const A0FGIWAddress = "0xF597cE99bc20F6cBe752982dB362B78B84b5690C"; // Thay bằng địa chỉ token chính xác
 const A0GIWABI = [
   {
     "inputs": [
@@ -551,7 +551,7 @@ const signer = wallet.connect(provider);
 async function main() {
     const ZeroGravityToken = new ethers.Contract(A0FGIWAddress, A0GIWABI, signer);
 
-    const transferTx = await ZeroGravityToken.transfer("0x55050636C7E8B952E97eE6e4fF5D0f4a5563Cb15", ethers.utils.parseUnits("1000000", 18));
+    const transferTx = await ZeroGravityToken.transfer("0x4d4812CA33e31761c60b7f9d4c7a7C2d39f4868B", ethers.utils.parseUnits("1000000", 18));
     await transferTx.wait();
     console.log("✅ Đã chuyển 1,000,000 A0GIW vào ZeroGravityFarm!");
 
@@ -559,4 +559,5 @@ async function main() {
 main().catch((error) => {
     console.error("❌ Lỗi:", error);
   });
-  
+
+// npx hardhat run test/tranferTokenA0GIW.js --network ZeroGravityChain

@@ -6,9 +6,9 @@ const provider = new ethers.providers.JsonRpcProvider(process.env.URL); // RPC c
 const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider); // Thay PRIVATE_KEY bằng private key của bạn
 
 const FACTORY_ADDRESS = "0x7FDc996385baEB9aD972C99d1756DC6ab057E2de"; // Địa chỉ Factory Contract
-const ROUTER_ADDRESS = "0x4eF60c888C48D14631847B91042E0c92FD7FE894"; // Địa chỉ Router Contract
+const ROUTER_ADDRESS = "0x044FC96F7B36F3c9E8541415A5C8A87991640b1e"; // Địa chỉ Router Contract
 const WA0GI = "0x493ea9950586033ea8894b5e684bb4df6979a0d3"; // Địa chỉ WA0GI
-const TOKEN_B = "0x2410f5541148ec6b6db8C1712E4D4E8C48D6239E"; // Địa chỉ A0GIW
+const TOKEN_B = "0xBf9dc24a2719689f8B7D4945575c3be456f4c917"; // Địa chỉ A0GIW
 
 
 const factoryABI = [

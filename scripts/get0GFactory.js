@@ -8,14 +8,14 @@ async function main() {
 
     console.log("🚀 Đang lấy địa chỉ contract với tài khoản:", deployer.address);
 
-    // 🏭 Lấy contract zerogravityCall
-    const ZeroGravityFactory = await ethers.getContractFactory("ZeroGravityFactory");
+    // 🏭 Lấy contract t0GDEXCall
+    const t0GDEXFactory = await ethers.getContractFactory("t0GDEXFactory");
 
     // ⚡ Triển khai contract (hoặc lấy từ file cấu hình nếu đã deploy trước đó)
-    const factory = await ZeroGravityFactory.deploy(deployer.address);
+    const factory = await t0GDEXFactory.deploy(deployer.address);
     await factory.deployed();
 
-    console.log("✅ Địa chỉ ZeroGravityFactory:", factory.address);
+    console.log("✅ Địa chỉ 0GFactory:", factory.address);
 }
 
 // 🚀 Chạy script
@@ -25,3 +25,6 @@ main()
         console.error("❌ Lỗi:", error.message);
         process.exit(1);
     });
+
+
+// npx hardhat run scripts/get0GFactory.js --network ZeroGravityChain
