@@ -1,6 +1,6 @@
 const { ethers } = require("hardhat");
 
-const ZeraGravityStakeAddress = "0x42197A2df41EB03192F27aF15B14120879Fd6e70"; 
+const ZeraGravityStakeAddress = "0x62742e46537aC5FaC5e2F2389Dc09F89360829FC"; 
 
 const ZeraGravityStakeABI = [
   {
@@ -1582,33 +1582,50 @@ const ZeraGravityStakeABI = [
     "type": "function"
   }
 ];
+async function main() {
+  const [signer] = await ethers.getSigners();
+  console.log("👤 Signer address:", signer.address);
 
-  async function main() {
-    const [signer] = await ethers.getSigners();
-    const ZeraGravityStake = new ethers.Contract(ZeraGravityStakeAddress, ZeraGravityStakeABI, signer);
-  
-    // Lấy thời gian hiện tại (tính theo giây)
-    const currentTime = Math.floor(Date.now() / 1000);
-  
-    // Lấy thông tin người dùng từ smart contract
-    const userInfo = await ZeraGravityStake.userInfo(signer.address);
-    console.log("📌 Actual lockEndTime from contract:", userInfo.lockEndTime.toString());
-    console.log("⏳ Current time:", currentTime);
-  
-    // Kiểm tra nếu đã hết thời gian khóa
-    if (currentTime < userInfo.lockEndTime) {
-      console.log("🚨 Cannot withdraw yet. Still in lock period.");
-      return;
-    }
-  
-    console.log("✅ Lock period ended. Proceeding with withdrawal...");
-  
-    console.log(`⏳ withdrawAll :`);
-    const tx = await ZeraGravityStake.withdrawAll();
-    await tx.wait();
-    console.log("✅ withdrawAll successful!");
+  const ZeraGravityStake = new ethers.Contract(ZeraGravityStakeAddress, ZeraGravityStakeABI, signer);
+
+  console.log("🔍 Đang lấy thông tin người dùng từ contract...");
+  const userInfo = await ZeraGravityStake.userInfo(signer.address);
+  console.log("📌 userInfo from contract:", userInfo);
+
+  const currentTime = Math.floor(Date.now() / 1000);
+  const lockEndTime = Number(userInfo.lockEndTime.toString());
+
+  console.log("📌 Actual lockEndTime from contract:", lockEndTime);
+  console.log("⏳ Current time:", currentTime);
+
+  // Kiểm tra số lượng stake
+  const amountStaked = Number(userInfo.amount?.toString() || "0");
+  console.log("📦 Amount staked:", amountStaked);
+
+  if (amountStaked === 0) {
+    console.log("⚠️ Bạn chưa stake gì cả. Không thể thực hiện rút.");
+    return;
   }
-  
+
+  if (currentTime < lockEndTime) {
+    const secondsLeft = lockEndTime - currentTime;
+    console.log(`🚨 Vẫn còn trong thời gian khóa. Vui lòng đợi thêm ${secondsLeft} giây.`);
+    return;
+  }
+
+  console.log("✅ Đã hết thời gian khóa. Tiến hành rút toàn bộ...");
+
+  try {
+    console.log("📤 Gửi giao dịch withdrawAll...");
+    const tx = await ZeraGravityStake.withdrawAll();
+    console.log(`📌 Giao dịch đã gửi: ${tx.hash}`);
+    await tx.wait();
+    console.log("✅ Giao dịch đã xác nhận. Rút thành công!");
+  } catch (err) {
+    console.error("❌ Lỗi khi gọi withdrawAll:", err.reason || err.message);
+  }
+}
+
 main().catch((error) => {
   console.error("❌ Lỗi:", error);
 });

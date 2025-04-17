@@ -2130,7 +2130,7 @@ const t0GDEX_ABI = [
     const t0GDEXToken = new ethers.Contract(t0GDEX, t0GDEX_ABI, signer);
   
     const amount = ethers.utils.parseUnits("200", 18);
-    const lockDuration = 0;
+    const lockDuration = 120;
   
     // 🔍 Kiểm tra số dư trước khi approve
     const balance = await t0GDEXToken.balanceOf(signer.address);
